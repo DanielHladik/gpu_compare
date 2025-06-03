@@ -1,0 +1,59 @@
+{% extends 'cards/base.html' %}
+{% block content %}
+<h2>Porovnání grafických karet</h2>
+<form method="get" class="row g-3 mb-4">
+  <div class="col-md-3">
+    <select name="manufacturer" class="form-select">
+      <option value="">Výrobce (vše)</option>
+      <option value="NVIDIA">NVIDIA</option>
+      <option value="AMD">AMD</option>
+      <option value="Intel">Intel</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <select name="technology" class="form-select">
+      <option value="">Technologie (vše)</option>
+      <option value="DLSS">DLSS</option>
+      <option value="FSR">FSR</option>
+      <option value="XeSS">XeSS</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <button type="submit" class="btn btn-primary">Filtrovat</button>
+  </div>
+</form>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Název</th>
+      <th>Výrobce</th>
+      <th>Paměť</th>
+      <th>Typ paměti</th>
+      <th>Technologie</th>
+      <th>Cena</th>
+      <th>Benchmark</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for card in cards %}
+    <tr>
+      <td>{{ card.name }}</td>
+      <td>{{ card.manufacturer }}</td>
+      <td>{{ card.memory_gb }} GB</td>
+      <td>{{ card.memory_type }}</td>
+      <td>
+        {% for tech in card.supported_technologies.all %}
+          <a href="/technology/{{ tech.id }}/">{{ tech.name }} {{ tech.version }}</a>{% if not forloop.last %}, {% endif %}
+        {% empty %}-{% endfor %}
+      </td>
+      <td>{{ card.price }} Kč</td>
+      <td>{{ card.benchmark_index }}</td>
+      <td><a href="/cards/{{ card.id }}/" class="btn btn-sm btn-outline-secondary">Detail</a></td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="8">Žádné karty nenalezeny.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

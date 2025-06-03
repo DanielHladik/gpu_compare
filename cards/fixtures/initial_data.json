@@ -1,0 +1,23 @@
+[
+  {"model": "cards.upscalingtechnology", "pk": 1, "fields": {"name": "DLSS", "version": "3.5", "description": "Deep Learning Super Sampling od NVIDIA využívá AI pro zvýšení výkonu a kvality obrazu."}},
+  {"model": "cards.upscalingtechnology", "pk": 2, "fields": {"name": "FSR", "version": "3.0", "description": "FidelityFX Super Resolution od AMD je otevřená technologie pro upscaling a zvýšení FPS."}},
+  {"model": "cards.upscalingtechnology", "pk": 3, "fields": {"name": "XeSS", "version": "1.2", "description": "Xe Super Sampling od Intelu využívá AI pro vylepšení obrazu a výkonu na podporovaných kartách."}},
+
+  {"model": "cards.graphicscard", "pk": 1, "fields": {"name": "NVIDIA GeForce GTX 650", "manufacturer": "NVIDIA", "memory_gb": 1, "memory_type": "GDDR5", "price": "1500.00", "benchmark_index": 10, "supported_technologies": []}},
+  {"model": "cards.graphicscard", "pk": 2, "fields": {"name": "NVIDIA GeForce GTX 960", "manufacturer": "NVIDIA", "memory_gb": 2, "memory_type": "GDDR5", "price": "3500.00", "benchmark_index": 20, "supported_technologies": []}},
+  {"model": "cards.graphicscard", "pk": 3, "fields": {"name": "NVIDIA GeForce GTX 1060", "manufacturer": "NVIDIA", "memory_gb": 6, "memory_type": "GDDR5", "price": "6000.00", "benchmark_index": 35, "supported_technologies": []}},
+  {"model": "cards.graphicscard", "pk": 4, "fields": {"name": "NVIDIA GeForce GTX 1660 Super", "manufacturer": "NVIDIA", "memory_gb": 6, "memory_type": "GDDR6", "price": "7000.00", "benchmark_index": 45, "supported_technologies": []}},
+  {"model": "cards.graphicscard", "pk": 5, "fields": {"name": "NVIDIA GeForce RTX 2060", "manufacturer": "NVIDIA", "memory_gb": 6, "memory_type": "GDDR6", "price": "9000.00", "benchmark_index": 55, "supported_technologies": [1]}},
+  {"model": "cards.graphicscard", "pk": 6, "fields": {"name": "NVIDIA GeForce RTX 3060", "manufacturer": "NVIDIA", "memory_gb": 12, "memory_type": "GDDR6", "price": "11000.00", "benchmark_index": 65, "supported_technologies": [1]}},
+  {"model": "cards.graphicscard", "pk": 7, "fields": {"name": "NVIDIA GeForce RTX 4060", "manufacturer": "NVIDIA", "memory_gb": 8, "memory_type": "GDDR6", "price": "12000.00", "benchmark_index": 70, "supported_technologies": [1]}},
+  {"model": "cards.graphicscard", "pk": 8, "fields": {"name": "NVIDIA GeForce RTX 4090", "manufacturer": "NVIDIA", "memory_gb": 24, "memory_type": "GDDR6X", "price": "49999.00", "benchmark_index": 100, "supported_technologies": [1]}},
+
+  {"model": "cards.graphicscard", "pk": 9, "fields": {"name": "AMD Radeon RX 580", "manufacturer": "AMD", "memory_gb": 8, "memory_type": "GDDR5", "price": "4000.00", "benchmark_index": 25, "supported_technologies": []}},
+  {"model": "cards.graphicscard", "pk": 10, "fields": {"name": "AMD Radeon RX 5700 XT", "manufacturer": "AMD", "memory_gb": 8, "memory_type": "GDDR6", "price": "9000.00", "benchmark_index": 50, "supported_technologies": [2]}},
+  {"model": "cards.graphicscard", "pk": 11, "fields": {"name": "AMD Radeon RX 6700 XT", "manufacturer": "AMD", "memory_gb": 12, "memory_type": "GDDR6", "price": "12000.00", "benchmark_index": 65, "supported_technologies": [2]}},
+  {"model": "cards.graphicscard", "pk": 12, "fields": {"name": "AMD Radeon RX 7900 XTX", "manufacturer": "AMD", "memory_gb": 24, "memory_type": "GDDR6", "price": "29999.00", "benchmark_index": 95, "supported_technologies": [2]}},
+
+  {"model": "cards.graphicscard", "pk": 13, "fields": {"name": "Intel Arc A380", "manufacturer": "Intel", "memory_gb": 6, "memory_type": "GDDR6", "price": "3500.00", "benchmark_index": 20, "supported_technologies": [3]}},
+  {"model": "cards.graphicscard", "pk": 14, "fields": {"name": "Intel Arc A750", "manufacturer": "Intel", "memory_gb": 8, "memory_type": "GDDR6", "price": "7999.00", "benchmark_index": 50, "supported_technologies": [3]}},
+  {"model": "cards.graphicscard", "pk": 15, "fields": {"name": "Intel Arc A770", "manufacturer": "Intel", "memory_gb": 16, "memory_type": "GDDR6", "price": "9999.00", "benchmark_index": 60, "supported_technologies": [3]}}
+]

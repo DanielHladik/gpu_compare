@@ -1,0 +1,33 @@
+{% extends 'cards/base.html' %}
+{% block content %}
+<h1 class="mb-4">Vítejte na GPU Compare</h1>
+<p>
+    Tento web slouží k porovnání grafických karet a technologií upscalingu (DLSS, FSR, XeSS). Najdete zde informace o jednotlivých kartách, jejich výkonu, podpoře technologií a možnost porovnání dle různých kritérií.
+</p>
+<div class="row mt-5">
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">DLSS</h5>
+        <p class="card-text">Deep Learning Super Sampling od NVIDIA využívá AI pro zvýšení výkonu a kvality obrazu.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">FSR</h5>
+        <p class="card-text">FidelityFX Super Resolution od AMD je otevřená technologie pro upscaling a zvýšení FPS.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">XeSS</h5>
+        <p class="card-text">Xe Super Sampling od Intelu využívá AI pro vylepšení obrazu a výkonu na podporovaných kartách.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

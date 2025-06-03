@@ -1,0 +1,62 @@
+{% extends 'cards/base.html' %}
+{% block content %}
+<h2>Porovnání grafických karet</h2>
+<div class="row mb-4">
+  <div class="col-md-5">
+    <label for="card1" class="form-label">Vyberte první kartu</label>
+    <select id="card1" class="form-select">
+      <option value="">-- Vyberte --</option>
+      {% for card in all_cards %}
+        <option value="{{ card.id }}" {% if card1 and card1.id == card.id %}selected{% endif %}>{{ card.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2 d-flex align-items-end justify-content-center">
+    <span class="fw-bold">vs</span>
+  </div>
+  <div class="col-md-5">
+    <label for="card2" class="form-label">Vyberte druhou kartu</label>
+    <select id="card2" class="form-select">
+      <option value="">-- Vyberte --</option>
+      {% for card in all_cards %}
+        <option value="{{ card.id }}" {% if card2 and card2.id == card.id %}selected{% endif %}>{{ card.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+<div id="compare-result">
+  {% include 'cards/compare_result.html' with card1=card1 card2=card2 %}
+</div>
+<script>
+function updateCompare() {
+  const card1 = document.getElementById('card1').value;
+  const card2 = document.getElementById('card2').value;
+  fetch(`/api/compare/?card1=${card1}&card2=${card2}`)
+    .then(r => r.json())
+    .then(data => {
+      let html = '';
+      function cardBlock(card) {
+        if (!card) return '<div class="text-muted">Nevybráno</div>';
+        return `<div class='card p-3 mb-2'>
+          <h4>${card.name}</h4>
+          <ul class='list-group mb-2'>
+            <li class='list-group-item'><b>Výrobce:</b> ${card.manufacturer}</li>
+            <li class='list-group-item'><b>Paměť:</b> ${card.memory_gb} GB (${card.memory_type})</li>
+            <li class='list-group-item'><b>Cena:</b> ${card.price} Kč</li>
+            <li class='list-group-item'><b>Benchmark index:</b> ${card.benchmark_index}</li>
+            <li class='list-group-item'><b>Technologie:</b> ${card.technologies.join(', ') || '-'}</li>
+          </ul>
+        </div>`;
+      }
+      html += '<div class="row">';
+      html += `<div class="col-md-5">${cardBlock(data.card1)}</div>`;
+      html += '<div class="col-md-2 d-flex align-items-center justify-content-center"><span class="fw-bold">vs</span></div>';
+      html += `<div class="col-md-5">${cardBlock(data.card2)}</div>`;
+      html += '</div>';
+      document.getElementById('compare-result').innerHTML = html;
+    });
+}
+document.getElementById('card1').addEventListener('change', updateCompare);
+document.getElementById('card2').addEventListener('change', updateCompare);
+</script>
+{% endblock %}

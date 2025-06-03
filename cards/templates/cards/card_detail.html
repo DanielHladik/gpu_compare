@@ -1,0 +1,17 @@
+{% extends 'cards/base.html' %}
+{% block content %}
+<h2>{{ card.name }}</h2>
+<ul class="list-group mb-3">
+  <li class="list-group-item"><strong>Výrobce:</strong> {{ card.manufacturer }}</li>
+  <li class="list-group-item"><strong>Paměť:</strong> {{ card.memory_gb }} GB</li>
+  <li class="list-group-item"><strong>Typ paměti:</strong> {{ card.memory_type }}</li>
+  <li class="list-group-item"><strong>Podporované technologie:</strong>
+    {% for tech in card.supported_technologies.all %}
+      <a href="/technology/{{ tech.id }}/">{{ tech.name }} {{ tech.version }}</a>{% if not forloop.last %}, {% endif %}
+    {% empty %}-{% endfor %}
+  </li>
+  <li class="list-group-item"><strong>Cena:</strong> {{ card.price }} Kč</li>
+  <li class="list-group-item"><strong>Benchmark index:</strong> {{ card.benchmark_index }}</li>
+</ul>
+<a href="/cards/" class="btn btn-secondary">Zpět na seznam</a>
+{% endblock %}

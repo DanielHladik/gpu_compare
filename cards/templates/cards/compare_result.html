@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-5">
+    {% if card1 %}
+    <div class="card p-3 mb-2">
+      <h4>{{ card1.name }}</h4>
+      <ul class="list-group mb-2">
+        <li class="list-group-item"><b>Výrobce:</b> {{ card1.manufacturer }}</li>
+        <li class="list-group-item"><b>Paměť:</b> {{ card1.memory_gb }} GB ({{ card1.memory_type }})</li>
+        <li class="list-group-item"><b>Cena:</b> {{ card1.price }} Kč</li>
+        <li class="list-group-item"><b>Benchmark index:</b> {{ card1.benchmark_index }}</li>
+        <li class="list-group-item"><b>Technologie:</b> {% for t in card1.supported_technologies.all %}{{ t.name }} {{ t.version }}{% if not forloop.last %}, {% endif %}{% empty %}-{% endfor %}</li>
+      </ul>
+    </div>
+    {% else %}
+    <div class="text-muted">Nevybráno</div>
+    {% endif %}
+  </div>
+  <div class="col-md-2 d-flex align-items-center justify-content-center">
+    <span class="fw-bold">vs</span>
+  </div>
+  <div class="col-md-5">
+    {% if card2 %}
+    <div class="card p-3 mb-2">
+      <h4>{{ card2.name }}</h4>
+      <ul class="list-group mb-2">
+        <li class="list-group-item"><b>Výrobce:</b> {{ card2.manufacturer }}</li>
+        <li class="list-group-item"><b>Paměť:</b> {{ card2.memory_gb }} GB ({{ card2.memory_type }})</li>
+        <li class="list-group-item"><b>Cena:</b> {{ card2.price }} Kč</li>
+        <li class="list-group-item"><b>Benchmark index:</b> {{ card2.benchmark_index }}</li>
+        <li class="list-group-item"><b>Technologie:</b> {% for t in card2.supported_technologies.all %}{{ t.name }} {{ t.version }}{% if not forloop.last %}, {% endif %}{% empty %}-{% endfor %}</li>
+      </ul>
+    </div>
+    {% else %}
+    <div class="text-muted">Nevybráno</div>
+    {% endif %}
+  </div>
+</div>
